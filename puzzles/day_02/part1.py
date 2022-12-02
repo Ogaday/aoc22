@@ -19,7 +19,7 @@ class Move:
         return f"{type(self)}"
 
 
-class Scizzors(Move):
+class Scissors(Move):
     score = 3
 
     def __lt__(self, other: Move) -> bool:
@@ -33,7 +33,7 @@ class Paper(Move):
     score = 2
 
     def __lt__(self, other: Move) -> bool:
-        return isinstance(other, Scizzors)
+        return isinstance(other, Scissors)
 
     def __gt__(self, other: Move) -> bool:
         return isinstance(other, Rock)
@@ -46,7 +46,7 @@ class Rock(Move):
         return isinstance(other, Paper)
 
     def __gt__(self, other: Move) -> bool:
-        return isinstance(other, Scizzors)
+        return isinstance(other, Scissors)
 
 
 def score(their_move, my_move):
@@ -62,10 +62,10 @@ def score(their_move, my_move):
 move_table = {
     "A": Rock(),
     "B": Paper(),
-    "C": Scizzors(),
+    "C": Scissors(),
     "X": Rock(),
     "Y": Paper(),
-    "Z": Scizzors(),
+    "Z": Scissors(),
 }
 
 
